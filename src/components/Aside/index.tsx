@@ -1,9 +1,11 @@
+import Image from 'next/image'
+import logo from './assets/logo.png'
 import styles from './Aside.module.css'
 
 export const Aside = () => {
     return (
         <aside className={styles.aside}>
-            <img src="/logo.png" alt="Logo da Code Connect" />
+            <Image src={logo} alt="Logo da Code Connect" />
         </aside>
     )
 }
