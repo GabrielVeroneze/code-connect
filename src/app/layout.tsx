@@ -11,8 +11,10 @@ const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
     return (
         <html lang="pt-br">
             <body>
-                <Aside />
-                {children}
+                <div className="app-container">
+                    <Aside />
+                    {children}
+                </div>
             </body>
         </html>
     )
