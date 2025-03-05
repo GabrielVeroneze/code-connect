@@ -8,14 +8,15 @@ interface AvatarProps {
 
 export const Avatar = ({ imageSrc, name }: AvatarProps) => {
     return (
-        <div>
+        <div className={styles.container}>
             <Image
+                className={styles.imagem}
                 src={imageSrc}
                 alt={`Avatar de ${name}`}
                 width={32}
                 height={32}
             />
-            <span>@{name}</span>
+            <span className={styles.nome}>@{name}</span>
         </div>
     )
 }
