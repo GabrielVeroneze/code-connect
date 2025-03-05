@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Prompt } from 'next/font/google'
 import { Aside } from '@/components/Aside'
+import '@/app/reset.css'
 import '@/app/globals.css'
 
 const prompt = Prompt({
