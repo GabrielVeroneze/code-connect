@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { CardPost } from '@/components/CardPost'
 import { PaginatedPosts } from '@/types/PaginatedPosts'
 import logger from '@/logger'
@@ -18,13 +19,27 @@ async function getAllPosts(page: number): Promise<PaginatedPosts> {
 }
 
 const Home = async () => {
-    const { data: posts } = await getAllPosts(1)
+    const { data: posts, prev, next } = await getAllPosts(1)
 
     return (
         <main className={styles.principal}>
-            {posts.map(post => (
-                <CardPost key={post.id} post={post} />
-            ))}
+            <section className={styles.posts}>
+                {posts.map(post => (
+                    <CardPost key={post.id} post={post} />
+                ))}
+            </section>
+            <nav className={styles.links}>
+                {prev && (
+                    <Link className={styles.link} href={`/?page=${prev}`}>
+                        Página anterior
+                    </Link>
+                )}
+                {next && (
+                    <Link className={styles.link} href={`/?page=${next}`}>
+                        Próxima página
+                    </Link>
+                )}
+            </nav>
         </main>
     )
 }
