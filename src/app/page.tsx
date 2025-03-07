@@ -1,6 +1,7 @@
-import logger from '@/logger'
 import { CardPost } from '@/components/CardPost'
 import { Post } from '@/types/Post'
+import logger from '@/logger'
+import styles from './page.module.css'
 
 async function getAllPosts(): Promise<Post[]> {
     const response = await fetch('http://localhost:3042/posts')
@@ -20,7 +21,7 @@ const Home = async () => {
     const posts = await getAllPosts()
 
     return (
-        <main>
+        <main className={styles.principal}>
             {posts.map(post => (
                 <CardPost key={post.id} post={post} />
             ))}
