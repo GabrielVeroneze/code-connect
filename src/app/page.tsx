@@ -18,8 +18,11 @@ async function getAllPosts(page: number): Promise<PaginatedPosts> {
     return response.json()
 }
 
-const Home = async () => {
-    const { data: posts, prev, next } = await getAllPosts(1)
+const Home = async ({ searchParams }: { searchParams: Promise<{ page: string }> }) => {
+    const { page } = await searchParams
+    const currentPage = Number(page) || 1
+
+    const { data: posts, prev, next } = await getAllPosts(currentPage)
 
     return (
         <main className={styles.principal}>
