@@ -38,7 +38,7 @@ const PagePost = async ({ params }: { params: Promise<{ slug: string }> }) => {
     return (
         <div>
             <h1>{post?.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: post.markdown }} />
+            <div dangerouslySetInnerHTML={{ __html: post?.markdown ?? '' }} />
         </div>
     )
 }
