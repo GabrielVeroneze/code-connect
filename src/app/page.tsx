@@ -11,6 +11,16 @@ async function getAllPosts(page: number): Promise<PaginatedPosts> {
 
     if (!response.ok) {
         logger.error('Ops, alguma coisa deu errado')
+
+        return {
+            first: 1,
+            prev: null,
+            next: null,
+            last: 1,
+            pages: 1,
+            items: 0,
+            data: []
+        }
     }
 
     logger.info('Posts obtidos com sucesso')
