@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Avatar } from '@/components/Avatar'
 import { Post } from '@/types/Post'
 import styles from './CardPost.module.css'
@@ -22,9 +23,9 @@ export const CardPost = ({ post }: CardPostProps) => {
             <section className={styles.conteudo}>
                 <h2 className={styles.titulo}>{post.title}</h2>
                 <p className={styles.texto}>{post.body}</p>
-                <a className={styles.link} href="#">
+                <Link className={styles.link} href={`/posts/${post.slug}`}>
                     Ver detalhes
-                </a>
+                </Link>
             </section>
             <footer className={styles.rodape}>
                 <Avatar
