@@ -6,11 +6,12 @@ import styles from './CardPost.module.css'
 
 interface CardPostProps {
     post: Post
+    tamanho?: 'compacto' | 'expandido'
 }
 
-export const CardPost = ({ post }: CardPostProps) => {
+export const CardPost = ({ post, tamanho = 'compacto' }: CardPostProps) => {
     return (
-        <article className={styles.card}>
+        <article className={`${styles.card} ${styles[tamanho]}`}>
             <header className={styles.cabecalho}>
                 <Image
                     className={styles.imagem}
@@ -23,9 +24,11 @@ export const CardPost = ({ post }: CardPostProps) => {
             <section className={styles.conteudo}>
                 <h2 className={styles.titulo}>{post.title}</h2>
                 <p className={styles.texto}>{post.body}</p>
-                <Link className={styles.link} href={`/posts/${post.slug}`}>
-                    Ver detalhes
-                </Link>
+                {tamanho === 'compacto' && (
+                    <Link className={styles.link} href={`/posts/${post.slug}`}>
+                        Ver detalhes
+                    </Link>
+                )}
             </section>
             <footer className={styles.rodape}>
                 <Avatar
