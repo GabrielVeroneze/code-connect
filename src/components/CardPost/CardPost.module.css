@@ -50,3 +50,21 @@
     justify-content: flex-end;
     padding: 1rem;
 }
+
+.expandido {
+    width: 100%;
+}
+
+.expandido .cabecalho {
+    padding: 1.5rem 1rem;
+}
+
+.expandido .imagem {
+    height: 300px;
+    width: 100%;
+}
+
+.expandido .titulo {
+    font-size: 1.375rem;
+    line-height: 33px;
+}
