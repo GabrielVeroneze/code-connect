@@ -44,6 +44,10 @@ const PagePost = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
     const post = await getPostBySlug(slug)
 
+    if (!post) {
+        return <p>Post não encontrado</p>
+    }
+
     return (
         <main className={styles.principal}>
             <CardPost tamanho="expandido" post={post} />
@@ -53,7 +57,7 @@ const PagePost = async ({ params }: { params: Promise<{ slug: string }> }) => {
                     <span
                         className={`${styles.codigo} ${roboto_mono.className}`}
                         dangerouslySetInnerHTML={{
-                            __html: post?.markdown ?? '',
+                            __html: post.markdown,
                         }}
                     />
                 </div>
