@@ -1,7 +1,16 @@
 import { remark } from 'remark'
+import { Roboto_Mono } from 'next/font/google'
+import { CardPost } from '@/components/CardPost'
 import { Post } from '@/types/Post'
 import html from 'remark-html'
 import logger from '@/logger'
+import styles from './page.module.css'
+
+const roboto_mono = Roboto_Mono({
+    weight: ['400'],
+    subsets: ['latin'],
+    display: 'swap',
+})
 
 async function getPostBySlug(slug: string): Promise<Post | null> {
     const response = await fetch(`http://localhost:3042/posts?slug=${slug}`)
@@ -36,10 +45,20 @@ const PagePost = async ({ params }: { params: Promise<{ slug: string }> }) => {
     const post = await getPostBySlug(slug)
 
     return (
-        <div>
-            <h1>{post?.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: post?.markdown ?? '' }} />
-        </div>
+        <main className={styles.principal}>
+            <CardPost tamanho="expandido" post={post} />
+            <section className={styles.secao}>
+                <h2 className={styles.titulo}>Código:</h2>
+                <div className={styles.box}>
+                    <span
+                        className={`${styles.codigo} ${roboto_mono.className}`}
+                        dangerouslySetInnerHTML={{
+                            __html: post?.markdown ?? '',
+                        }}
+                    />
+                </div>
+            </section>
+        </main>
     )
 }
 
