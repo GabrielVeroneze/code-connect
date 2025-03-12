@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Prompt } from 'next/font/google'
 import { Aside } from '@/components/Aside'
-import '@/app/reset.css'
-import '@/app/globals.css'
+import '@/styles/reset.css'
+import '@/styles/globals.css'
 
 const prompt = Prompt({
     weight: ['400', '600'],
