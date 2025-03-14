@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { CardPost } from '@/components/CardPost'
 import { PaginatedPosts } from '@/types/PaginatedPosts'
-import logger from '@/logger'
+import logger from '@/utils/logger'
 import styles from './page.module.css'
 
 async function getAllPosts(page: number): Promise<PaginatedPosts> {

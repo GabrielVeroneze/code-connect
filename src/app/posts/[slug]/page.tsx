@@ -3,7 +3,7 @@ import { Roboto_Mono } from 'next/font/google'
 import { CardPost } from '@/components/CardPost'
 import { Post } from '@/types/Post'
 import html from 'remark-html'
-import logger from '@/logger'
+import logger from '@/utils/logger'
 import styles from './page.module.css'
 
 const roboto_mono = Roboto_Mono({
