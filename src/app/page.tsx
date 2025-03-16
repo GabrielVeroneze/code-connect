@@ -1,7 +1,6 @@
 import Link from 'next/link'
+import { getAllPosts } from '@/services/postService'
 import { CardPost } from '@/components/CardPost'
-import { PaginatedPosts } from '@/types/PaginatedPosts'
-import logger from '@/utils/logger'
 import styles from './page.module.css'
 
 const Home = async ({ searchParams }: { searchParams: Promise<{ page: string }> }) => {
