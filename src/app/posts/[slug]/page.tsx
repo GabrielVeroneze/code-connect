@@ -1,9 +1,6 @@
-import { remark } from 'remark'
 import { Roboto_Mono } from 'next/font/google'
+import { getPostBySlug } from '@/services/postService'
 import { CardPost } from '@/components/CardPost'
-import { Post } from '@/types/Post'
-import html from 'remark-html'
-import logger from '@/utils/logger'
 import styles from './page.module.css'
 
 const roboto_mono = Roboto_Mono({
