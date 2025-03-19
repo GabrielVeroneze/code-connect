@@ -3,7 +3,11 @@ import { getAllPosts } from '@/services/postService'
 import { CardPost } from '@/components/CardPost'
 import styles from './page.module.css'
 
-const Home = async ({ searchParams }: { searchParams: Promise<{ page: string }> }) => {
+interface HomeProps {
+    searchParams: Promise<{ page: string }>
+}
+
+const Home = async ({ searchParams }: HomeProps) => {
     const { page } = await searchParams
     const currentPage = Number(page) || 1
 
