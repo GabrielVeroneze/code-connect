@@ -9,7 +9,11 @@ const roboto_mono = Roboto_Mono({
     display: 'swap',
 })
 
-const PagePost = async ({ params }: { params: Promise<{ slug: string }> }) => {
+interface PagePostProps {
+    params: Promise<{ slug: string }>
+}
+
+const PagePost = async ({ params }: PagePostProps) => {
     const { slug } = await params
 
     const post = await getPostBySlug(slug)
